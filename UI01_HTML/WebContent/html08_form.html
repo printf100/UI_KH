@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<!-- name으로 되어있는 값을 액션으로 가지고 간다 -->
+	<form action="html08_form_res.html" method="get">
+	
+		<fieldset>
+		
+			<legend>회원가입</legend>
+			
+			<p>ID : <input type="text" name="id">
+			<p>PW : <input type="password" name="pw">
+			
+			<p>이메일 수신여부 : 
+				<input type="radio" name="radio" value="y">Y
+				<input type="radio" name="radio" value="n">N
+				<!-- radio버튼은 중복체크 불가 (name을 동일하게 해줘야 한 묶음인걸 알수있음!) -->
+			</p>
+			
+			<p>관심분야 : 
+				<input type="checkbox" name="cb01" value="HTML">HTML
+				<input type="checkbox" name="cb02" value="CSS">CSS
+				<input type="checkbox" name="cb03" value="Javascript">Javascript
+			</p>
+			
+			<p>
+				<input type="submit" value="전송">
+				<input type="reset" value="취소">
+				<input type="button" value="그냥버튼">
+			</p>
+			
+		</fieldset>
+	
+	
+	
+	</form>
+
+</body>
+</html>
