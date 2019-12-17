@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+/* 1. */
+h1 {
+	background: pink;
+}
+
+/* 2. */
+#a {
+	color: red;
+}
+
+/* 3. */
+.b {
+	color: blue;
+}
+
+/* 4. */
+* {
+	padding: 2px;
+}
+
+/* 5. */
+p > strong {
+	color: orange;
+}
+
+/* 6. */
+#c + p {
+	color: green;
+}
+
+/* 7. */
+p[title] {
+	font-size: 20pt;
+}
