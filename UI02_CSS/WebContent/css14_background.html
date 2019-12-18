@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CSS3(background)</title>
+
+	<style type="text/css">
+	
+		div,p {
+			width: 300px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		
+		#bgsize {
+			background: url("resources/image/img1.png");
+			background-size: cover;
+		}
+		
+		#multibg {
+			background: url("resources/image/img1.png"), url("resources/image/img2.png");
+			background-size: contain;
+		}
+		
+		#bgclick {
+			border: 10px dotted black;
+			padding: 50px;
+			background-color: skyblue;
+			background-clip: padding-box;
+		}
+		
+		#txtshadow {
+			text-shadow: 1px 2px #ccc;
+		}
+		
+		#wrap {
+			word-wrap: break-word;	/* 자동으로 칸 안에 들어가게 해줌 */
+		}
+	
+		@font-face {
+			font-family: "Goyang";
+			src: url("resources/Goyang.ttf") format("truetype");
+		}
+		
+		#goyang {
+			font-family: "Goyang";
+			font-size: 30px;
+		}
+	
+	</style>
+
+
+</head>
+<body>
+
+	<h1>background-size</h1>
+	<div id="bgsize">background-size</div>
+	
+	<h1>multi-background</h1>
+	<div id="multibg">multi-background</div>
+	
+	<h1>background-click</h1>
+	<div id="bgclick">background-click</div>
+	
+	<h1>text-shadow</h1>
+	<div id="txtshadow">text-shadow</div>
+	
+	<h1>word-wrap</h1>
+	<div id="wrap">dkemddkemdgktpduswjsndEndndndnddkdpdyszmgkgkgkgkgwlqrkrhtlvekdtlqhfkf</div>
+	
+	<h1>font-face</h1>
+	<div id="goyang">고양시 고양체 귀욥다</div>
+
+</body>
+</html>
