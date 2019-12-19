@@ -3,14 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <title>DOM</title>
+
+	<script type="text/javascript">
+	
+		function searchQS() {
+			
+			// CSS 선택자를 이용해서 찾겠다~
+			var doc = document.querySelectorAll("#test");	// id가 test인 것을 모두 찾겠다
+			doc[0].innerHTML = "querySelectorAll(CSS 선택자)";
+			
+			var doc2 = document.querySelector("#test");	// 하나 찾겠다
+			doc2.style.color = "red";
+		}
+		
+		function searchId() {
+			
+			var doc = document.getElementById("test");	// Element -> id는 유일한 하나! node 하나만 가져옴! (*id만 element고 나머지는 다 s붙음)
+			doc.innerHTML = "id로 탐색합니다.";
+			doc.style.color = "blue";
+		}
+		
+		function searchName() {
+			
+			var doc = document.getElementsByName("test02");	// Elements -> name은 같은 이름으로 여러개 줄수 있음! nodeList로 가져옴!
+			doc[1].value = "name 속성으로 엘리먼트 탐색합니다."
+		}
+		
+		function searchTagName() {
+			
+			var doc = document.getElementsByTagName("p");
+			doc[3].style.color = "plum";
+		}
+	
+	</script>
+
 </head>
 <body>
-
-	<p onclick="serchQS();">DOM 탐색 메소드</p>
 	
-	<p id="test" onclick="searchId();">1. 엘리먼트의 id로 탐색 : 엘리먼트 하나를 선택 (중복불가) -> 반환 : 값 하나</p>
+	<!-- DOM : Document Object Model -->
+	<p onclick="searchQS();">DOM 탐색 메소드</p>
 	
-	<p onclick="serckName();">2. 엘리먼트의 name으로 탐색 : 엘리먼트 여러 개를 선택 -> 반환 : 배열(nodeList)</p>
+	<p id="test" onclick="searchId();">1. 엘리먼트의 id로 탐색 : 엘리먼트 하나를 선택 (중복불가) -> 반환 : 값 하나(node)</p>
+	
+	<p onclick="searchName();">2. 엘리먼트의 name으로 탐색 : 엘리먼트 여러 개를 선택 -> 반환 : 배열(nodeList)<br>
+		<input type="text" name="test02"><br>
+		<input type="text" name="test02"><br>
+		<input type="text" name="test02"><br>
+	</p>
+	
+	<p onclick="searchTagName();">3. 엘리먼트의 tag name으로 탐색 : 엘리먼트 여러 개를 선택 -> 반환 : 배열(nodeList)</p>
 
 </body>
 </html>
