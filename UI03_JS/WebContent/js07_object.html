@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Object</title>
+
+	<script type="text/javascript">
+		
+		// ES6부터 자바스크립트에도 클래스 개념이 들어감
+		function myClassQ() {
+			
+			this.name = "kh정보교육원";	// this : 외부에서 접근할 수 있게 해준다.
+			
+			var name02 = "Q 강의실";	// var : 외부에서 접근할 수 없음
+			this.getName02 = function() {
+				return name02;
+			}
+		}
+		
+		var classQ = {	// {}로 묶어주면 리터럴객체가 되어서 classQ.name 이런식으로 호출할 수 있게됨
+				name: "kh 정보 교육원",
+				print: function() {
+					return classQ.name + "!!!!";
+				}
+		}
+		
+		// 객체에 함수(기능)를 추가해줌! 
+		myClassQ.prototype.printName = function() {
+			alert(this.name + ", " + this.getName02() + " 화이팅! ");
+		}
+		
+		function objTest() {
+			
+			var cls = new myClassQ();
+			
+			// 사이트에서 F12 -> Console 누르면 볼 수 있음
+			console.log(cls.name);
+			console.log(cls.name02);
+			console.log(cls.getName02());
+			
+			console.log(classQ.name);
+			console.log(classQ.print());
+			
+			cls.printName();
+		}
+	
+	</script>
+
+</head>
+<body>
+
+	<pre>
+		객체의 구성
+		- 메소드 : 기능 정의
+		- 속성 : 객체 내부 데이터
+		- this : 객체 내부의 메소드나 속성을 정의할 때 사용
+		- 프로토타입 : 객체의 확장
+	</pre>
+	
+	<button onclick="objTest();">객체</button>
+
+</body>
+</html>
