@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>롤링 갤러리</title>
+
+	<style type="text/css">
+	
+		a>img {
+			width: 50px;
+			height: 50px;
+		}
+		
+		#gallary {
+			width: 200px;
+			height: 200px;
+		}
+		
+		p {
+			width: 350px;
+			height: 250px;
+		}
+		
+		img {
+			vertical-align: middle;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+	
+	</style>
+	
+	
+	<script type="text/javascript">
+	
+		var num = 1;
+		
+		function prevGallary() {
+			num--;
+			
+			if(num < 1) {
+				num = 6;
+			}
+			
+			document.getElementById("gallary").src = "image/img" + num + ".png";
+			
+			return false;	// 이벤트가 막힘 = naver로 못 가게한다.
+		}
+		
+		function nextGallary() {
+			num ++;
+			
+			if(num > 6) {
+				num = 1;
+			}
+			
+			document.getElementById("gallary").src = "image/img" + num + ".png";
+			
+			return false;
+		}
+	
+	</script>
+
+</head>
+<body>
+
+	<div id="gallarywrap">
+		<p>
+			<a href="http://www.naver.com" onclick="return prevGallary();">
+				<img alt="이전그림" src="image/left.png">
+			</a>
+
+			<img alt="갤러리 그림" src="image/img1.png" id="gallary">
+			
+			<a href="#next" onclick="nextGallary();">
+				<img alt="다음그림" src="image/right.png">
+			</a>
+		</p>
+	</div>
+
+</body>
+</html>
