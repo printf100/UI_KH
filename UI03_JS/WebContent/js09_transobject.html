@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>형 변환</title>
+</head>
+<body>
+
+	<h2>1. 숫자형 형 변환 Number() 함수</h2>
+	<p>문자형의 숫자를 숫자형으로 변환시켜준다.
+	<input type="text" id="num">
+	<button onclick="numTest(num.value);">변환</button>
+	
+	<script type="text/javascript">
+	
+		function numTest(val) {
+			var vals = Number(val) + 5;
+			alert(vals + " : " + typeof(vals));
+		}
+	
+	</script>
+	
+	<hr>	
+	
+	<h2>2. 정수형 형 변환 parseInt() 함수</h2>
+	<p>문자형의 숫자를 정수형으로 변환시켜준다.
+	<input type="text" id="int">
+	<button onclick="intTest(int.value);">변환</button>
+	
+	<script type="text/javascript">
+	
+		function intTest(val) {
+			var vals = parseInt(val) + 5;
+			alert(vals + " : " + typeof(vals));
+		}
+	
+	</script>
+	
+	<hr>	
+	
+	<h2>3. 실수형 형 변환 parseFloat() 함수</h2>
+	<p>문자형의 숫자를 실수형으로 변환시켜준다.
+	<input type="text" id="float">
+	<button onclick="floatTest(float.value);">변환</button>
+	
+	<script type="text/javascript">
+	
+		function floatTest(val) {
+			var vals = parseFloat(val) + 5;
+			alert(vals + " : " + typeof(vals));
+		}
+	
+	</script>
+	
+	<hr>	
+	
+	<h2>4. 검증 함수</h2>
+	<p>문자열로 된 코드를 자바스크립트로 읽어들여 계산한다.
+	<input type="text" name="evalue" placeholder="예) 5 + 10">
+	<button onclick="evalTest();">계산</button><br>
+	<span></span>
+	
+	<script type="text/javascript">
+	
+		function evalTest() {
+			var val = document.getElementsByName("evalue")[0];
+			
+			if(confirm("작성하신 코드가 맞나요 ? : " + val.value)) {
+				document.getElementsByTagName("span")[0].innerHTML = "<b>계산결과 : " + eval(val.value) + "</b>";
+			} else {
+				val.placeholer = "다시 작성합니다. 예) 5 + 10";
+			}
+		}
+	
+	</script>
+	
+	<hr>
+	
+	<h1>숙제!!!</h1>
+	
+	<input type="number" id="num1">
+	
+	<input type="text" list="mylist" id="selected">
+	<datalist id="mylist">
+		<option value="+">
+		<option value="-">
+		<option value="*">
+		<option value="/">
+	</datalist>
+	
+	<input type="number" id="num2">
+	<button onclick="calc();">계산</button><br>
+	<span></span>
+	
+	<script type="text/javascript">
+	
+		function calc() {
+			
+			var num1 = document.getElementById("num1");
+			var num2 = document.getElementById("num2");
+			var m = document.getElementById("mylist");
+			var s = document.getElementById("selected");
+			
+			var c;
+			for(var i=0; i<m.options.length; i++) {
+				if(m.options[i].value == s.value) {	// 옵션의 value = input의 value
+					c = m.options[i].value;
+				}
+			}
+			
+			alert("숫자1 : " + num1.value + "   숫자2 : " + num2.value + "   선택된 연산 : " + c);
+			
+			var result = num1.value + c + num2.value;
+			
+			document.getElementsByTagName("span")[1].innerHTML = "<b>계산 결과 : " + eval(result) + "</b>";	// eval() : 문자열을 수식으로 바꿔줌
+		}
+	
+	</script>
+	
+</body>
+</html>
