@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수02</title>
+
+	<script type="text/javascript">
+	
+		// 1. 명시적 함수
+		function func01() {
+			alert("명시적 함수");
+		}
+		
+
+		// 2. 익명 함수 : 함수에 이름이 없는 것, 함수가 변수에 값으로 들어가있음
+		// func02() 형태로 호출할 수 있다.
+		var func02 = function() {
+			alert("익명 함수");
+		}
+		
+		
+		// 3. 리터럴 함수
+		// 함수가 값이 될 수 있다 = 함수가 파라미터 값으로 들어갈 수 있다 = 함수가 아규먼트가 될 수 있다 = 함수가 리턴될 수 있다.
+		function literalPrn(literal) {
+			// literal이라는 함수에 "안녕하세요~"를 값으로 줌
+			literal("안녕하세요, 리터럴 함수입니다.");
+		}
+		
+		// 위의 "안녕하세요~"를 literalPrn()의 파라미터 값으로 줌
+		function func03() {
+			literalPrn(function(msg) {
+				alert(msg);
+			});
+		}
+		
+		
+		// 4. arguments :아규먼트의 갯수만큼 배열 형태로 만들어줌		
+		function valTest() {
+			var val = "";
+
+			for (var i = 0; i < arguments.length; i++) {
+				val += arguments[i] + " ";
+			}
+			alert(val);
+		}
+		
+
+		// 5. 클로저 (함수 리턴하기)
+		function closureTest(val) {
+			var msg = "!!!!";
+
+			function addVal() {
+				alert(val + msg);
+			}
+
+			return addVal;
+		}
+
+		var pmEdu = closureTest("Javascript");
+
+		function nightEdu(msg) {
+
+			// 함수를 호출하기 위해서 ()를 붙여준거임
+			closureTest(msg)();
+		}
+		
+	</script>
+
+</head>
+<body>
+
+	<h1>함수!!!!!!!!!!!!!!!!!!</h1>
+	
+	<h2>함수의 종류</h2>
+	
+	<p onclick="func01();">1. 명시적 함수
+	
+	<p onclick="func02();">2. 익명 함수
+	
+	<p onclick="func03();">3. 리터럴 함수
+	
+	<h2 onclick="valTest('kh','정보','교육원');">args(arguments) 속성</h2>
+	
+	<h2>클로저(함수 리턴하기)</h2>
+	<label for="pm">오후강의</label>
+		<input type="text" id="pm" value="">
+		<input type="button" value="클릭" onclick="pmEdu();">
+
+	<hr/>
+	
+	<label for="night">저녁강의</label>
+		<input type="text" id="night" value="">
+		<input type="button" value="클릭" onclick="nightEdu(night.value);">
+
+</body>
+</html>
