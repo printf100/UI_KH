@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>test</title>
+
+	<script type="text/javascript">
+	
+		function gugudan1() {
+			
+			for(var i=1; i<10; i++) {
+				
+				document.getElementById("res").innerHTML += "<br><" + i + "단><br>";
+				
+				for(var j=1; j<10; j++) {		
+					var gugu = i * j;
+					document.getElementById("res").innerHTML += i + " X " + j + " = " + gugu + "<br>";
+				}
+			}
+		}
+		
+		
+		function gugudan2() {
+			
+			var dan = prompt("몇 단 출력할까요?");
+			
+			document.getElementById("res").innerHTML += "<br><" + dan + "단><br>";
+			
+			for(var i=1; i<10; i++) {		
+				var gugu = dan * i;
+				document.getElementById("res").innerHTML += dan + " X " + i + " = " + gugu + "<br>";
+			}
+			
+		}
+	
+	</script>
+
+
+</head>
+<body>
+
+	<h1>구구단</h1>
+	
+	<h3>1. 구구단 전체 출력</h3>
+	<input type="button" value="클릭" onclick="gugudan1();"><br>
+
+	<h3>2. 구구단 선택 출력</h3>
+	<p>prompt를 사용하여 입력받은 단만 출력하자.
+	<input type="button" value="클릭" onclick="gugudan2();"><br>
+	
+	<span id="res"></span>
+	
+</body>
+</html>
