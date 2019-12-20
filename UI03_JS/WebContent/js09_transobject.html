@@ -117,5 +117,105 @@
 	
 	</script>
 	
+	<hr>
+	
+	<h1>숙제!!! - class 이용하기</h1>
+	
+	<input type="number" class="a">
+	
+	<input type="text" list="mylist" class="a">
+	<datalist id="mylist">
+		<option value="+">
+		<option value="-">
+		<option value="*">
+		<option value="/">
+	</datalist>
+	
+	<input type="number" class="a">
+	<button onclick="calc();">계산</button><br>
+	<span></span>
+	
+	<script type="text/javascript">
+	
+		function calc() {
+			
+			var doc = document.querySelectorAll(".a");
+			
+			var res = "";
+			for(var i=0; i<doc.length; i++) {
+				res += doc[i].value;
+			}
+			
+			document.getElementsByTagName("span")[2].innerHTML = "<b>계산 결과 : " + eval(res) + "</b>";
+		}
+	
+	</script>
+	
+	<hr>
+	
+	<h1>숙제!!! - id 이용하기</h1>
+	
+	<input type="number" id="input1">
+	
+	<input type="text" list="mylist" id="opr">
+	<datalist id="mylist">
+		<option value="+">
+		<option value="-">
+		<option value="*">
+		<option value="/">
+	</datalist>
+	
+	<input type="number" id="input2">
+	<button onclick="calc();">계산</button><br>
+	<span></span>
+	
+	<script type="text/javascript">
+	
+		function calc() {
+			
+			var input1 = document.getElementById("input1");
+			var opr = document.getElementById("opr");
+			var input2 = document.getElementById("input2");
+			var res = eval(input1.value + opr.value + input2.value);
+			
+			document.getElementsByTagName("span")[3].innerHTML = "<b>계산 결과 : " + res + "</b>";
+		}
+	
+	</script>
+	
+	<hr>
+	
+	<h1>숙제!!! - name 이용하기</h1>
+	
+	<input type="number" name="test">
+	
+	<input type="text" list="mylist" name="test">
+	<datalist id="mylist">
+		<option value="+">
+		<option value="-">
+		<option value="*">
+		<option value="/">
+	</datalist>
+	
+	<input type="number" name="test">
+	<button onclick="calc();">계산</button><br>
+	<span></span>
+	
+	<script type="text/javascript">
+	
+		function calc() {
+			
+			// getElementsByName()으로 nodeList로 가지고 와서 0~2번지를 사용할 수 있음
+			var input1 = document.getElementsByName("test")[0];
+			var opr = document.getElementsByName("test")[1];
+			var input2 = document.getElementsByName("test")[2];
+
+			var res = eval(input1.value + opr.value + input2.value);
+			
+			document.getElementsByTagName("span")[4].innerHTML = "<b>계산 결과 : " + res + "</b>";
+		}
+	
+	</script>
+	
 </body>
 </html>
