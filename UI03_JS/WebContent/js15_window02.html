@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>팝업창</title>
+
+<script type="text/javascript">
+	function test(){
+		// test라는 name을 가진 input태그에 입력된 값을 받음
+		var val=document.getElementsByName("test")[0].value;
+		
+		// 팝업창을 생성했던 페이지(window01)의 두번째 h1태그에 val 값을 넣음
+		opener.document.getElementsByTagName("h1")[1].innerHTML=val;
+		
+		// 팝업창 닫음
+		close();
+	}
+</script>
+
+</head>
+<body>
+
+	<input type="text" name="test"/>
+	<input type="button" onclick="test()" value="전달"/>
+	<input type="button" onclick="self.close()" value="창닫기">
+
+
+</body>
+</html>
