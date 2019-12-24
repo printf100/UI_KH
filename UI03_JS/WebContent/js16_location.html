@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>location</title>
+
+	<script type="text/javascript">
+	
+		function locationTest() {
+			
+			//location.href="https://www.naver.com";	// 뒤로가기하면 바로 전 페이지로 감
+			//location.assign("https://www.google.com");	// location.href와 같다.
+			//location.replace("https://www.daum.net");	// 전 단계 이력을 replace함 (뒤로가기하면 index.html로 감)
+			location.reload();	// 새로고침
+		}
+	
+	</script>
+
+</head>
+<body>
+
+	<a href="https://www.iei.or.kr/main/main.kh" target="_blank">페이지 이동</a>
+	<br>
+	<button onclick="locationTest();">페이지 이동</button>
+
+</body>
+</html>
