@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM01</title>
+
+	<script type="text/javascript">
+	
+		function searchParent() {
+			
+			var child02 = document.getElementsByTagName("p")[1];
+			var parent = child02.parentNode;
+			
+			alert(parent.nodeName);
+			parent.style.backgroundColor = "plum";
+		}
+		
+		function searchChild() {
+			
+			var div = document.getElementsByTagName("div");
+			var divChildren = div[0].childNodes;
+			
+			alert(divChildren[5].tagName);	// 공백까지 childNode로 침
+			divChildren[5].style.backgroundColor = "skyblue";
+		}
+		
+		
+		// 문제
+		function test01() {
+			
+			var test01 = document.getElementsByTagName("p")[3];
+			var parent = test01.parentNode;
+			
+			alert(parent.nodeName);
+			parent.style.backgroundColor = "plum";
+		}
+		
+		function test02() {
+			
+			var div = document.getElementsByTagName("div")[2];
+			var divChildren = div.childNodes[3];
+			
+			alert(divChildren.tagName);
+			
+			divChildren.style.fontSize = "20pt";
+		}
+	
+	</script>
+
+</head>
+<body>
+
+	<h1>부모탐색, 자식탐색</h1>
+	
+	<div>
+		<p>child01</p>
+		<p>child02</p>
+		<p>child03</p>
+	</div>
+	<button onclick="searchParent();">부모탐색</button><br>
+	<button onclick="searchChild();">자식탐색</button>
+	
+	
+	<!-- 문제 -->
+	<div>
+		<p>test01</p>
+		<p>test02</p>
+	</div>
+	<div>
+		<p>test03</p>
+		<p>test04</p>
+	</div>
+	
+	<h3 onclick="test01();">1. "test01 태그를 포함한 부모태그"의 배경색을 적용하자.<!-- parentNode --></h3>
+	<h3 onclick="test02();">2. "마지막 div 태그"에 포함된 마지막 p태그의 폰트 크기를 20pt로 적용하자.<!-- childNodes --></h3>
+
+</body>
+</html>

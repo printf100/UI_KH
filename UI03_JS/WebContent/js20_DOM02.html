@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM02</title>
+
+	<script type="text/javascript">
+	
+		function createEl() {
+			
+			var div = document.createElement("div");	// <div></div> 생성
+			
+			// 1번
+// 			var attr = document.createAttribute("style");	// style="" 생성
+// 			attr.nodeValue = "border:1px solid blue";
+// 			div.setAttributeNode(attr);	// <div style="border:1px solid blue"></div>
+			
+			// 2번
+			div.setAttribute("style", "border: 1px dotted red");			
+			
+			
+			var txt = document.createTextNode("엘리먼트 생성");
+			div.appendChild(txt);	// 자식으로 들어가게 됨
+			
+			document.body.appendChild(div);
+			
+			/*
+				1. 엘리먼트 객체 생성 : createElement("String tagName");
+				2. 속성 추가
+				2-1. 속성 생성 : createAttribute("String attributeName");
+					 속성 추가 : setAttributeNode(Attr attr);
+				2-2. 한 번에 생성 : setAttribute("String attr", "String value");
+				3. text 객체 생성 : createTextNode("String text");
+			*/
+		}
+	
+	</script>
+
+</head>
+<body>
+
+	<button onclick="createEl();">엘리먼트 생성하기</button>
+
+</body>
+</html>
