@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>selector04</title>
+
+	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+	
+	<script type="text/javascript">
+	
+		$(function() {
+			
+			// form에서 submit 이벤트가 발생하면 실행됨!
+			$("#signal").submit(function() {
+				if($(".infobox").val() == null || $(".infobox").val() == "") {
+					$(".error").show();
+					return false;	// 이벤트 전파 막기
+				}
+			});
+		})
+		
+		
+		function(check) {
+			
+			$("input[name=chk]").checked = true;
+		}
+	
+	</script>
+
+</head>
+<body>
+
+	<form action="" id="signal" method="get">
+		<div>
+			<span class="label">User ID</span>
+			<input type="text" class="infobox" name="userid">
+			<span class="error" hidden="" style="color:red;">반드시 입력하세요</span>
+		</div>
+		<input type="submit" class="submit" value="입력">
+	</form>
+	
+	<hr>
+	
+	<fieldset style="width: 300px">
+		<legend>체크 여부 확인</legend>
+		
+		<input type="checkbox" name="all" onclick="allChk(this.checked);">전체선택<br>
+		<input type="checkbox" name="chk" value="20000"><b>JAVA</b><br>
+		<input type="checkbox" name="chk" value="30000"><b>jQuery</b><br>
+		<input type="checkbox" name="chk" value="40000"><b>Spring</b><br>
+		
+		<input type="button" value="확인" id="confirm"><br>
+		<span>선택한 책 가격</span>
+		<div id="result"></div>
+	</fieldset>
+
+</body>
+</html>

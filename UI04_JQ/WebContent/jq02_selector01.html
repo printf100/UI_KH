@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>selector01</title>
+
+	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+	
+	<script type="text/javascript">
+	
+		$(document).ready(function() {
+			$("div:eq(0)").css({"border":"1px solid red", "width":"400px","height":"200px"});
+			$("#view").css("border","1px solid blue").css("width","400px").css("height","70px").css("text-align", "center").css("padding-top", "40px");
+		})
+		
+		function selTag() {
+			$("span").css("color", "red");
+			$("#view").text('$("span").css("color", "red");');
+		}
+		
+		function selId() {
+			jQuery("#t1").css("color", "blue");
+			jQuery("#view").text('jQuery("#t1").css("color", "blue");');
+		}
+		
+		function selClass() {
+			$(".t2").css("color", "green");
+			$("#view").text('$(".t2").css("color", "green");');
+		}
+		
+		function selPC01() {
+			$("li span").css("color", "skyblue");
+			$("#view").text('$("li span").css("color", "skyblue");');
+		}
+		
+		function selPC02() {
+			$("li > span").css("color", "blue");
+			$("#view").text('$("li > span").css("color", "blue");');
+		}
+		
+		function selNth() {
+			$("li:nth-child(3)").css("background-color", "plum");
+			$("#view").text('$("li:nth-child(3)").css("background-color", "plum");');
+		}
+		
+		function selFirst() {
+			$("li:first-child").css("background-color", "gray");
+			$("#view").text('$("li:first-child").css("background-color", "gray");');
+		}
+		
+		function selLast() {
+			$("li:last-child").css("background-color", "lightgray");
+			$("#view").text('$("li:last-child").css("background-color", "lightgray");');
+		}
+		
+		function cls() {
+			$("*").css("color", "black").css("background-color", "");
+			$("#view").text('$("*").css("color", "black").css("background-color", "");');
+		}
+	
+	</script>
+
+</head>
+<body>
+
+	<h1>selector 표현식</h1>
+	
+	<div>
+		<ul>
+			<li><span>tag로 선택하기</span></li>
+			<li id="t1">id로 선택하기</li>
+			<li class="t2">class로 선택하기</li>
+			<li><span>parent child로 선택하기</span></li>
+			<li><b><span>parent &gt; child</span></b>로 선택하기</li>
+			<li>:nth-child(n/odd/even)로 선택하기</li>
+			<li>:first-child로 선택하기</li>
+			<li>:last-child로 선택하기</li>
+		</ul>
+	</div>
+	
+	<br>
+	
+	<div>
+		<button onclick="selTag();">태그 선택</button>
+		<button onclick="selId();">id 선택(t1)</button>
+		<button onclick="selClass();">class 선택(t2)</button>
+		<button onclick="selPC01();">p c 선택</button>
+		<button onclick="selPC02();">p &gt; c 선택</button>
+		<button onclick="selNth();">nth-child 선택</button>
+		<button onclick="selFirst();">first-child 선택</button>
+		<button onclick="selLast();">last-child 선택</button>
+		<br>
+		<button onclick="cls();">clear</button>
+	</div>
+	
+	<h2>코드 내용</h2>
+	<div id="view"></div>
+
+</body>
+</html>

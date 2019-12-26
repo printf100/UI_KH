@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>selector02</title>
+
+	<style type="text/css">
+	
+		img {
+			width: 100px;
+			height: 100px;
+		}
+	
+	</style>
+
+	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+	
+	<script type="text/javascript">
+	
+		function resizeImg() {
+			$("img").css("width", "200px").css("height", "200px");
+		}
+		
+		function idSelector() {
+			$("#selid").hide();
+		}
+		
+		function classSelector() {
+			$(".selclass").css("opacity", "0.5");
+		}
+		
+		function propSelector() {
+			$("img[title*=02]").slideUp(2000);
+		}
+		
+		function changeImg() {
+			$("td > img").attr("src","image/img2.png");
+		}
+	
+	</script>
+
+</head>
+<body>
+
+	<h1>1. 이미지들의 크기를 모두 200*200로 설정하자.</h1>
+	<button onclick="resizeImg();">크기변경</button>
+
+	<h1>2. 이미지들 중 id가 'selid'인 태그를 찾아 숨기자.</h1>
+	<button onclick="idSelector();">숨기기</button>
+	
+	<h1>3. 이미지들 중 class가 'selclass'인 태그를 찾아 투명도 50% 적용하자.</h1>
+	<button onclick="classSelector();">투명하게</button>
+	
+	<h1>
+		4. 이미지 속성값으로 탐색하여 slideUp 기능을 적용하자.
+			(title 속성값 중, '2'를 포함하는 img 태그를 찾아서 적용)
+			(slideUp은 2000ms로 적용)
+	</h1>
+	<button onclick="propSelector();">slideUp</button>
+	
+	<h1>5. 이미지 바꾸기(td의 자식요소인 img만 선택하여 적용)</h1>
+	<button onclick="changeImg();">바꾸기</button>
+	
+	<table>
+		<tr>
+			<td><img title="img1" id="selid" alt="test01" src="image/img1.png"></td>
+			<td><img title="img02" alt="test01" src="image/img1.png"></td>
+			<td><img title="img3" class="selclass" alt="test01" src="image/img1.png"></td>
+			<td><img title="img4" class="selclass" alt="test01" src="image/img1.png"></td>
+		</tr>
+		<tr>
+			<td><img title="img5" id="selid" alt="test01" src="image/img1.png"></td>
+			<td><span><img title="img6" alt="test01" src="image/img1.png"></span></td>
+			<td><span><img title="img7" class="selclass" alt="test01" src="image/img1.png"></span></td>
+			<td><img title="img8" class="selclass" alt="test01" src="image/img1.png"></td>
+		</tr>
+	</table>
+	
+</body>
+</html>
