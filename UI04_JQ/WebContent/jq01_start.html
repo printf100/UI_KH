@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<style type="text/css">
+	
+		img {
+			width: 300px;
+			height: 300px;
+		}
+	
+	</style>
+
+	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+	
+	<script type="text/javascript">
+	
+		/*
+			jQuery 기본 작성법 : css selector 표현식
+			작성 예)
+				$("selector").메소드();
+				$("p").css("color", "red");
+			
+			함수 바깥에서 jQuery 사용할 때 2가지 방법
+			$(function() {
+				// 작성
+			})
+			
+			$(document).ready(function() {
+				// 작성
+			})
+		*/
+		
+		function highlight() {
+			$("#list01 > li").eq(0).css("background-color", "plum");		
+		}
+		
+		// 함수 없이 바로 jQuery 사용하고 싶을 때
+		$(function() {
+			$("img").click(function() {
+				alert("이미지를 클릭했습니다.");
+				$(this).hide();
+			})
+		})
+		
+		function showImg() {
+			$("img").show();
+		}
+		
+		function resizeImg() {
+			//$("img").css("width", "100px").css("height", "100px");
+			$("img").css({"width":"100px", "height":"100px"})
+		}
+		
+		function addImg() {
+			$("img").last().after("<img src='image/img2.png'>");
+		}
+		
+		function toggleImg() {
+			$("img").toggle();
+		}
+		
+		/*
+			jQuery는 javascript의 library이다.
+		*/
+	
+	</script>
+
+</head>
+<body>
+
+	<h1>jQuery 시작!</h1>
+	<ul id="list01">
+		<li>1. 셀렉터 표현식
+		<li>2. DOM 탐색 메소드
+		<li>3. 이벤트 메소드
+		<li>4. 이펙트 메소드
+		<li>5. Ajax
+	</ul>
+	
+	<button onclick="highlight();">강조!</button>
+	
+	<hr>
+	
+	<button onclick="showImg();">이미지 보이기</button>
+	<button onclick="resizeImg();">이미지 축소</button>
+	<button onclick="addImg();">이미지 추가</button>
+	<button onclick="toggleImg();">이미지 숨기기/보이기</button>
+	<br>
+	<div>
+		<img alt="img" src="image/img1.png">
+	</div>
+	
+</body>
+</html>
