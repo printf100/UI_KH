@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DOM 탐색 02</title>
+
+	<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+
+	<script type="text/javascript">
+	
+		$(document).ready(function() {
+			
+			$("div").find("b").css({"font-size":"30pt", "color":"red"});
+			
+			$("div").children("#chd").text("2. children()");
+			
+			$("p").parent().css("background-color", "skyblue");
+			$("#chd").parents("div").css("background-color", "white");
+			$("p").eq(1).next().css({"font-size":"30pt", "color":"blue"})
+		})
+	
+	</script>
+
+</head>
+<body>
+
+	<p>
+		<b>
+			find("selector") : 선택한 엘리먼트의 자속들 중에, 탐색하고자 하는 엘리먼트를 검색
+		</b><Br>
+		<b>
+			children("selector") : 선택한 엘리먼트의 자식요소들 중에 탐색하고자 하는 엘리먼트(태그)를 검색
+		</b><br>
+		<b>
+			parent() / parents("selector") : 선택한 엘리먼트의 부모요소를 검색
+		</b><br>
+		<b>
+			next("selector") : 선택한 엘리먼트 다음에 나오는 요소를 검색
+		</b>
+	</p>
+	
+	<div>
+		<p><b>1</b></p>
+		<p id="chd">2</p>
+		<p>3</p>
+		<p>4</p>
+		<p>5</p>
+	</div>
+
+</body>
+</html>
