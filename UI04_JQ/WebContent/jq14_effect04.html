@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>class 속성</title>
+
+	<style type="text/css">
+	
+		img {
+			width: 200px;
+			height: 200px;
+		}
+		
+		.addsize {
+			width: 300px;
+			height: 300px;
+		}
+		
+		.onoffimg {
+			display: none;
+		}
+	
+	</style>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<script type="text/javascript">
+	
+		$(function() {
+			
+			$("#btn").click(function() {
+				$("img").toggleClass("onoffimg");	// 해당 객체에 class속성을 넣어주거나 뺌
+			})
+			
+			
+			$("img").click(function() {
+				
+				if($(this).hasClass("addsize")) {
+					$(this).removeClass("addsize").attr("title", "이미지 축소");
+				} else {
+					$(this).addClass("addsize").attr("title", "이미지 확대");
+				}
+			})
+		})
+	
+	</script>
+
+</head>
+<body>
+
+	<button id="btn">이미지 on/off</button>
+	
+	<br>
+	
+	<img alt="img01" src="image/img1.png" title="이미지 1번">
+	<img alt="img02" src="image/img2.png" title="이미지 2번">
+	<img alt="img03" src="image/img3.png" title="이미지 3번">
+
+</body>
+</html>
