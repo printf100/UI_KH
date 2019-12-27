@@ -17,12 +17,60 @@
 					return false;	// 이벤트 전파 막기
 				}
 			});
+			
+			$("#confirm").click(function() {
+				
+				$("#result").empty();	// 혹시 값이 있을수도 있으니까 값을 한 번 지워줌
+				
+				if($("input[name=chk]").length == 0) {
+					
+					alert("하나 이상 체크해주세요!");
+				
+				} else {
+					
+					var res = 0;
+					
+					$("input[name=chk]:checked").each(function(i) {
+						//var chk = $("input[name=chk]:checked").eq(i);
+						var chk = $(this);
+						var book = chk.next().text();
+						var price = chk.val();
+						$("#result").append(book + " : " + price + "원<br>");
+						
+						res += parseInt(price);
+					})
+					
+					$("#result").append("총 가격 : " + res + "원");
+				}
+			})
+			
+			
+			$("input[name=chk]").click(function() {
+				
+				if($("input[name=chk]").length == $("input[name=chk]:checked").length) {
+					$("input[name=all]").prop("checked", true);
+				} else {
+					$("input[name=all]").prop("checked", false);
+				}
+				
+			})
+			
 		})
 		
 		
-		function(check) {
-			
-			$("input[name=chk]").checked = true;
+		/*
+			attr("attrName") / prop("attrName")
+			.attr() : HTML의 속성("attribute")을 취급 - 해당 태그에 바로 붙여줌
+			.prop() : JavaScript 객체의 속성("property")을 취급 - 가지고 온 객체의 속성을 의미 (웬만하면 attr말고 이걸로 잡아주자!)
+		*/
+		
+		
+		function allChk(bool) {
+			$("input[name=chk]").each(function() {	// each를 사용하면 값을 하나씩 가져와줌
+				// .attr() : 체크하면 input 속성에 checked가 생김
+				// .prop() : 체크해도 안생김
+				$(this).prop("checked", bool);
+			})
 		}
 	
 	</script>
