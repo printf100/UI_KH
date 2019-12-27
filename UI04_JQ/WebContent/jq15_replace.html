@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>replace</title>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	
+	<script type="text/javascript">
+	
+		$(function() {
+			$("button:first").click(function() {
+				// p를 얘로 바꾸겠다. (target이 앞에 온다)
+				$("p").replaceWith("<p><b>replaceWith 메소드</b></p>");
+			})
+			
+			$("button:last").click(function() {
+				// 얘로 p를 바꾸겠다. (target이 뒤에 온다)
+				$("<p><b>replaceAll 메소드</b></p>").replaceAll("p");
+			})
+		})
+	
+	</script>
+
+</head>
+<body>
+
+	<div>
+		<p>DOM 대체</p>
+	</div>
+	
+	<button>바꾸기(replaceWith)</button>
+	<button>바꾸기(replaceAll)</button>
+
+</body>
+</html>
