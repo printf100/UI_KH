@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>insertion04</title>
+
+	<style type="text/css">
+	
+		.box {
+			border: 2px solid red;
+		}
+		
+		#menu {
+			background-color: skyblue;
+			text-align: right;
+		}
+		
+		a {
+			text-decoration: none;
+			font-size: 20pt;
+		}
+		
+		#menu div {
+			display: inline-block;
+			margin-right: 10px;
+		}
+	
+	</style>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript">
+	
+		$(function() {
+			
+			var $box = $("<div>").addClass("box");
+			$(".sub_menu:first").wrap($box);	// <div class="box"> $(".sub_menu:first") </div>
+			
+			$(".sub_menu").click(function() {
+				
+				// 돌면서 sub_menu를 클래스로 가진 애들을 모두 확인
+				$(".sub_menu").each(function() {
+					if($(this).parent().is(".box")) {
+						$(this).unwrap(".box");
+					}
+				})
+				
+				// 클릭한 sub_menu
+				$(this).wrap($box);
+			})
+			
+			// a태그의 안에 있는 애를 span으로 감싼다.
+			$("a").wrapInner("<span></span>");
+			
+			// pre태그 전체를 b태그로 감싼다.
+			$("pre").wrapAll("<b>");
+			
+		})
+	
+	</script>
+
+</head>
+<body>
+
+	<div id="menu">
+		<div class="sub_menu">
+			<a href="#"><span>국비지원</span></a>
+		</div>
+		<div class="sub_menu">
+			<a href="#">훈련검색</a>
+		</div>
+		<div class="sub_menu">
+			<a href="#">기관검색</a>
+		</div>
+		<div class="sub_menu">
+			<a href="#">질문답변</a>
+		</div>
+		<div class="sub_menu">
+			<a href="#">자격증</a>
+		</div>
+	</div>
+	
+	<pre>A</pre>
+	<pre>B</pre>
+	<pre>C</pre>
+	<pre>D</pre>
+
+</body>
+</html>
