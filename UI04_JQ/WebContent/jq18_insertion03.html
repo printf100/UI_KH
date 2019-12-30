@@ -2,7 +2,44 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>insertion03</title>
+
+	<style type="text/css">
+	
+		div {
+			border: 1px solid red;
+		}
+	
+	</style>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript">
+	
+		$(function() {
+			
+			$("button:eq(0)").click(function() {
+				// target이 앞에
+				$("#base").after("<div>새로운 엘리먼트(after)</div>");
+			})
+			
+			$("button:eq(1)").click(function() {
+				// target이 뒤애
+				$("<div>새로운 엘리먼트(insertAfter)</div>").insertAfter("#base");
+			})
+			
+			$("button:eq(2)").click(function() {
+				// target이 앞애
+				$("#base").before("<div>새로운 엘리먼트(before)</div>");
+			})
+			
+			$("button:eq(3)").click(function() {
+				// target이 뒤애
+				$("<div>새로운 엘리먼트(insertBefore)</div>").insertBefore("#base");
+			})
+		})
+	
+	</script>
+
 </head>
 <body>
 
