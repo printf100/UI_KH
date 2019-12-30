@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<style type="text/css">
+	
+		h1 {
+			text-align: center;
+		}
+	
+		img {
+			width: 150px;
+			height: 150px;
+			float: left;
+		}
+		
+		#menubox {
+			position: relative;
+		}
+		
+		#menu {
+			overflow: auto;
+		}
+		
+		.sel {
+			width: 140px;
+			height: 140px;
+			border: 5px dotted yellow;
+			position: absolute;
+			left: 300px;
+		}
+		
+		button {
+			width: 150px;
+			height: 50px;
+			margin-left: 300px;
+		}
+	
+	</style>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript">
+	
+		$(function() {
+	
+			// 0.03초마다 함수 반복
+			setInterval(function() {
+				var div = $("#menu");
+				// active클래스의 첫번째 요소(img)를 div의 자식요소 가장 뒤에 붙임
+				$(".active").first().appendTo(div);
+			}, 30);
+			// appendTo(a) : a의 자식요소에 넣어준다. (뒤에)
+			
+			
+			$("button").click(function() {
+				
+				// img태그에 active라는 이름의 toggle클래스를 넣었다가 뺐다가
+				$("img").toggleClass("active");
+				
+				if($("button").text() == "START") {
+					$("button").text("STOP");
+				} else {
+					$("button").text("START");
+				}
+			})
+		})
+		
+	
+	</script>
+
+</head>
+<body>
+
+	<h1>선택해주세요</h1>
+	
+	<div id="menubox">
+		<div class="sel"></div>
+		<div id="menu">
+			<img alt="img01" src="image/img1.png">
+			<img alt="img02" src="image/img2.png">
+			<img alt="img03" src="image/img3.png">
+			<img alt="img04" src="image/img4.png">
+			<img alt="img05" src="image/img5.png">
+		</div>
+		
+		<button>START</button>
+	
+	</div>
+	
+
+</body>
+</html>
