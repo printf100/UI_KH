@@ -7,9 +7,25 @@
     <title>ajax02</title>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/create_table.js"></script>
     <script type="text/javascript">
     
-        
+        $(function() {
+            $("#emp_search").click(function() {
+            
+                $.ajax({
+                    url:"emplist.xml",  //emplist.xml 에 request를 보냄
+                    dataType:"xml", // 전송받을 데이터타입은 xml
+                    success:function(data) {    // 통신에 성공했을 때
+                        var empRowList = $(data).find("ROW");   // 가져온 data에서 ROW 태그를 찾음
+                        $("body").append(makeTable(empRowList));    // body태그에 makeTable로 가져온 table을 붙인다
+                    },
+                    error:function() {
+                        alert("통신 실패");
+                    }
+                })
+            })
+        })
 
     </script>    
 
