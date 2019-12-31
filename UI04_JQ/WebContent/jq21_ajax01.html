@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ajax01</title>
+
+	<style type="text/css">
+	
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		table {
+			width: 400px;
+		}
+		
+		table tr:nth-child(odd) {
+			background: orange;
+		}
+		
+		fieldset {
+			width: 400px;
+		}
+		
+		body {
+			width: 1000px;
+			margin: 50px auto;
+		}
+	
+	</style>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript">
+	
+		$(function() {
+			
+			$("#emp_search").click(function() {
+				
+				var empid = $("input[name=empid]").val();
+
+				// isNaN : 숫자가 아닌지
+				if(!isNaN(empid) && empid.length > 2) {
+
+					$.ajax({	// PlainObject
+						url: "emplist.xml",	// request를 보낼 주소
+						method: "get",	// get : request의 헤더부분에 저장되어 넘어감(주소창의 쿼리스트링 : ?)
+										// OR  type: "get"
+						async: true,	// true일 때 비동기
+						dataType: "xml",	// 전송받는 데이터의 타입
+						// data: ..., : 전송할 데이터(값)
+						success: function(msg) {	// 통신이 성공하면 실행됨
+							//console.log(msg);
+							var empinfo = $(msg).find("EMPLOYEE_ID:contains("+empid+")").parent();
+							if((empinfo).is("ROW")) {
+								$("table input").each(function(i) {
+									$(this).val($(empinfo).children().eq(i).text());
+								})
+							} else {
+								alert("검색대상이 존재하지 않습니다!");
+							}
+						},
+						error: function(request, status, error) {	// 통신이 실패하면 실행됨
+							alert("code : " + request.status + "\n" + "message : " + request.responseText + "\n" + "error : " + error);
+						}
+					})
+
+				} else {
+					alert("사원번호를 제대로 입력해 주세요!");
+				}
+			})
+		})
+		// AJAX(Asynchronous Javascript And Xml) : 비동기 통신
+	
+	</script>
+
+</head>
+<body>
+
+	<h1>데이터 가져오기</h1>
+	
+	<fieldset>
+		<legend>사원정보 조회</legend>
+		<input type="text" name="empid">
+		<input type="button" id="emp_search" value="조회">
+	</fieldset>
+	
+	<table>
+		<tr>
+			<th>사원번호</th>
+			<td><input type="text" name="empnum"></td>
+		</tr>
+		<tr>
+			<th>이름</th>
+			<td><input type="text" name="lastname"></td>
+		</tr>
+		<tr>
+			<th>이메일</th>
+			<td><input type="text" name="email"></td>
+		</tr>
+		<tr>
+			<th>전화번호</th>
+			<td><input type="text" name="phone"></td>
+		</tr>
+		<tr>
+			<th>입사일</th>
+			<td><input type="text" name="hiredate"></td>
+		</tr>
+	</table>
+
+</body>
+</html>
